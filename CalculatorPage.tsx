@@ -483,8 +483,12 @@ export default function CalculatorPage({ onBack }: CalculatorPageProps) {
 
   const performCarAppraisal = () => {
     const price = parseFloat(carOriginalPrice);
-    const mktValue = parseFloat(carMarketValue);
     const regYear = parseInt(carRegYear);
+    const age = 2026 - (isNaN(regYear) ? 2026 : regYear);
+    let mktValue = parseFloat(carMarketValue);
+    if (isNaN(mktValue) || mktValue <= 0) {
+      mktValue = calculateMarketValue(price, age);
+    }
     const km = parseFloat(carKmDriven);
     const tenure = parseInt(carLoanTenure);
     const rate = parseFloat(carInterestRate);
@@ -492,14 +496,6 @@ export default function CalculatorPage({ onBack }: CalculatorPageProps) {
 
     if (isNaN(price) || price <= 0) {
       setCarValidationMessage("Original Purchase Price must be greater than zero.");
-      return;
-    }
-    if (isNaN(mktValue) || mktValue <= 0) {
-      setCarValidationMessage("Current Market Value must be greater than zero.");
-      return;
-    }
-    if (mktValue > price) {
-      setCarValidationMessage("Current Market Value cannot exceed Original Purchase Price.");
       return;
     }
     if (isNaN(regYear) || regYear < 1990 || regYear > 2026) {
@@ -514,14 +510,13 @@ export default function CalculatorPage({ onBack }: CalculatorPageProps) {
       setCarValidationMessage("Interest Rate must be between 20% and 25% p.a.");
       return;
     }
-    if (!carBrand || !carModel || !carFuelType || !carTransmission || !carOwnerType || !carInsuranceStatus || !carFinanceCompany || !carMarketValue || isNaN(tenure) || isNaN(rate) || isNaN(ltv)) {
+    if (!carBrand || !carModel || !carFuelType || !carTransmission || !carOwnerType || !carInsuranceStatus || !carFinanceCompany || isNaN(tenure) || isNaN(rate) || isNaN(ltv)) {
       setCarValidationMessage("Please fill in all required fields to compute eligibility.");
       return;
     }
 
     // Calculations
     const mfgYear = regYear;
-    const age = 2026 - mfgYear;
     const marketValue = mktValue;
     
     // Calculate display/PDF parameters based on the manual market value
@@ -1239,19 +1234,7 @@ export default function CalculatorPage({ onBack }: CalculatorPageProps) {
                   <label className="text-[10px] text-[#6B7280] uppercase font-bold">Original Price (₹) *</label>
                   <input type="number" required={vehicleType === "Car"} placeholder="e.g. 850000" value={carOriginalPrice} onChange={e => setCarOriginalPrice(e.target.value)} className="w-full border border-[#E5E7EB] rounded-lg p-2 text-xs focus:border-[#2563EB] outline-none mt-1" />
                 </div>
-                <div>
-                  <label className="text-[10px] text-[#6B7280] uppercase font-bold">Current Market Value (₹) *</label>
-                  <input 
-                    type="number" 
-                    id="carMarketValue" 
-                    required={vehicleType === "Car"} 
-                    min="1" 
-                    placeholder="e.g. 1050000" 
-                    value={carMarketValue} 
-                    onChange={e => setCarMarketValue(e.target.value)} 
-                    className="w-full border border-[#E5E7EB] rounded-lg p-2 text-xs focus:border-[#2563EB] outline-none mt-1" 
-                  />
-                </div>
+                <input type="hidden" id="carMarketValue" value={carMarketValue} />
                 <div>
                   <label className="text-[10px] text-[#6B7280] uppercase font-bold">Interest Rate (% p.a.) *</label>
                   <select
