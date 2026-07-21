@@ -1,5 +1,5 @@
 import { jsPDF } from "jspdf";
-import { CustomerDetails, VehicleDetails, CalculationResults } from "../types";
+import { CustomerDetails, VehicleDetails, CalculationResults } from "./types";
 
 export function generateTruvexPDF(
   customer: CustomerDetails,

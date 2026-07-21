@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import CalculatorPage from "./components/CalculatorPage";
+import CalculatorPage from "./CalculatorPage";
 
 export default function App() {
   return (

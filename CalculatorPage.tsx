@@ -7,8 +7,8 @@ import {
   TrendingDown, Percent, Landmark, ChevronDown,
   Car, Bike, ShieldAlert, Check, TrendingUp
 } from "lucide-react";
-import { generateTruvexPDF, generateTruvexDemoManualPDF, generateTruvexCarPDF } from "../utils/pdfGenerator";
-import { CustomerDetails, VehicleDetails, CalculationResults } from "../types";
+import { generateTruvexPDF, generateTruvexDemoManualPDF, generateTruvexCarPDF } from "./pdfGenerator";
+import { CustomerDetails, VehicleDetails, CalculationResults } from "./types";
 
 // ============================================================================
 // STANDALONE VEHICLE LOAN ELIGIBILITY CALCULATION ENGINE FUNCTIONS
