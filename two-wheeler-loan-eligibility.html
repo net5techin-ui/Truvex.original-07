@@ -368,6 +368,32 @@
       min-height: 100vh;
     }
 
+    .site-header {
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none !important;
+    }
+    .brand-logo img {
+      height: 40px;
+      width: auto;
+    }
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: 0.05em;
+    }
+
     .breadcrumb-bar {
       background: var(--bg-primary);
       border-bottom: 1px solid var(--border);
@@ -811,6 +837,17 @@
 
 <body>
   <div class="page-wrapper">
+
+    <!-- Header Navigation with Logo -->
+    <header class="site-header">
+      <a href="https://truvex.life/" class="brand-logo">
+        <img src="/images/truvex-logo.svg" alt="Truvex Logo" onerror="this.onerror=null; this.src='/images/truvex-logo.png';" />
+        <span class="brand-title">TRUVEX</span>
+      </a>
+      <a href="https://truvex.life/" class="hero-cta" style="padding: 8px 18px; font-size: 14px;">
+        Check Loan Eligibility →
+      </a>
+    </header>
 
     <!-- Breadcrumb Navigation -->
     <nav class="breadcrumb-bar" aria-label="Breadcrumb">

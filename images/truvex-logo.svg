@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <!-- Arc above TT -->
+  <path d="M 40 55 Q 100 15 160 55" stroke="#2563EB" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- First T (dark/black) -->
+  <text x="48" y="120" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="80" fill="#1E293B" letter-spacing="-2">T</text>
+  <!-- Second T (blue) with slight overlap -->
+  <text x="100" y="120" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="80" fill="#2563EB" letter-spacing="-2">T</text>
+</svg>
