@@ -137,22 +137,13 @@ export const BIKE_MODELS = [
 const TruvexLogo = () => {
   return (
     <div className="flex items-center gap-2 sm:gap-3 select-none shrink-0">
-      <svg viewBox="0 0 130 110" className="w-9 h-9 sm:w-11 sm:h-11 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Car canopy / roof curve */}
-        <path
-          d="M 15 32 C 30 14, 75 11, 105 27 C 112 30, 115 32, 118 35 C 114 33, 107 30, 100 28 C 75 17, 32 19, 15 32 Z"
-          fill="#1d4ed8"
-        />
-        {/* Left part of T (Dark Navy) */}
-        <path
-          d="M 12 42 L 72 42 L 70 52 L 47 52 L 32 102 L 20 102 L 35 52 L 12 52 Z"
-          fill="#0f172a"
-        />
-        {/* Right part of T (Royal Blue) */}
-        <path
-          d="M 78 42 L 115 42 L 112 52 L 85 52 L 70 102 L 58 102 L 73 52 L 76 52 Z"
-          fill="#2563eb"
-        />
+      <svg viewBox="0 0 512 512" className="w-9 h-9 sm:w-11 sm:h-11 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Top Blue Arc */}
+        <path d="M 130 185 A 132 132 0 0 1 382 185" stroke="#2563EB" strokeWidth="36" fill="none" strokeLinecap="round"/>
+        {/* Left T (Dark Slate) */}
+        <path d="M 80 210 H 240 V 246 H 182 V 380 H 138 V 246 H 80 Z" fill="#222A30"/>
+        {/* Right T (Vivid Blue) */}
+        <path d="M 272 210 H 432 V 246 H 374 V 380 H 330 V 246 H 272 Z" fill="#2563EB"/>
       </svg>
       <div className="flex flex-col justify-center shrink-0">
         <div className="flex items-center text-xl sm:text-2xl font-extrabold tracking-[0.08em] leading-none text-[#0f172a] font-sans shrink-0">
